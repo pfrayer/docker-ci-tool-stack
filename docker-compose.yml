@@ -6,19 +6,12 @@ networks:
 
 services:
 
-  # nexus:
-  #   build: ./nexus 
-  #   ports:
-  #     - "18081:8081" 
-  #   networks:
-  #     - prodnetwork
-
   nexus:
     image: sonatype/nexus3:3.6.1
     ports:
       - "18081:8081"
     networks:
-      - prodnetwork        
+      - prodnetwork
 
   jenkins:
     build: ./jenkins
@@ -35,7 +28,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-      - /opt/jenkins/:/var/lib/jenkins/      
+      - /opt/jenkins/:/var/lib/jenkins/
     networks:
       - prodnetwork
 
@@ -51,7 +44,7 @@ services:
     networks:
       - prodnetwork
     depends_on:
-      - sonardb  
+      - sonardb
 
   sonardb:
     image: postgres:9.6
@@ -68,7 +61,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "2222:22"    
+      - "2222:22"
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         # external_url 'https://gitlab.example.com'
