@@ -31,7 +31,7 @@ docker-compose up
 - GitLab 10.2.1
 - Jenkins 2.60.3
 - SonarQube 6.7
-- Nexus 2.14.4
+- Nexus 3.6.1
 - Selenium Grid 3.7.1
 
 ## Access Tools
